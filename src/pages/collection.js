@@ -2,16 +2,15 @@ import * as React from 'react'
 import Layout from '../components/layout'
 import Table from 'react-bootstrap/Table';
 import { graphql } from 'gatsby'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 const Collection = ({ data }) => {
-  
     return (
         <>
         <Layout pageTitle="Collection">
-          
-          {
-            data.allMdx.nodes.map((node) => (
-  <Table striped bordered hover>
+     {
+      data.allMdx.nodes.map((node) => (
+       <Table striped bordered hover>
       <thead>
         <tr>
           <th>pic here</th>
@@ -22,8 +21,11 @@ const Collection = ({ data }) => {
         </tr>
       </thead>
       <tbody>
-        <tr key={node.id}>
-          <td></td>
+        <tr>
+          <td><GatsbyImage
+      image={node.frontmatter.hero_image.childImageSharp.gatsbyImageData}
+      alt={node.frontmatter.hero_image_alt}
+    /></td>
           <td>{node.frontmatter.title}</td>
           <td>{node.excerpt}</td>
           <td></td>
@@ -31,9 +33,12 @@ const Collection = ({ data }) => {
         </tr>
 
       </tbody>
-    </Table>
-            ))
-          }
+    </Table> 
+      ))
+     }     
+          
+  
+            
           
         </Layout>
         </>
@@ -41,10 +46,15 @@ const Collection = ({ data }) => {
 }
 
 export const query = graphql`
-  query {
-    allMdx(sort: {frontmatter: {title: ASC}}) {
+query  {
+  allMdx {
     nodes {
       frontmatter {
+        hero_image {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
         title
       }
       id
