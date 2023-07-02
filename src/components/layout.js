@@ -12,7 +12,7 @@ function Layout( {children} ) {
       <Navbar.Brand href="/">Compendium Companion</Navbar.Brand>
       <Nav className="me-auto">
         <Nav.Link href="/">Home</Nav.Link>
-        <Nav.Link href="/collection">My Collection</Nav.Link>
+        <Nav.Link href="/collection">Collection</Nav.Link>
         <Nav.Link href="/add">Add</Nav.Link>
       </Nav>
     </Container>
