@@ -39,7 +39,7 @@ const Collection = ({ data }) => {
     // </Table> 
 <Card style={{ width: '20rem' }}>
 
-      <GatsbyImage variant="top" objectFit='contain' image={node.frontmatter.hero_image.childImageSharp.gatsbyImageData} thumbnail />
+      <GatsbyImage variant="top" objectFit='contain' image={node.frontmatter.hero_image.childImageSharp.gatsbyImageData}  />
    
       <Card.Body>
         <Card.Title>{node.frontmatter.title}</Card.Title>
